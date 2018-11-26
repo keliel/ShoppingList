@@ -6,6 +6,7 @@
 # compiled output
 /dist
 /tmp
+/out-tsc
 /app/**/*.js
 /app/**/*.js.map
 
@@ -15,6 +16,18 @@
 
 # IDEs and editors
 /.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 
 # misc
 /.sass-cache
@@ -22,6 +35,7 @@
 /coverage/*
 /libpeerconnection.log
 npm-debug.log
+yarn-error.log
 testem.log
 /typings
 
@@ -29,21 +43,15 @@ testem.log
 /e2e/*.js
 /e2e/*.map
 
-#System Files
+# System Files
 .DS_Store
+Thumbs.db
 
 ### Sass ###
 .sass-cache/
 *.css.map
 *.sass.map
 *.scss.map
-
-### VisualStudioCode ###
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
 
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
