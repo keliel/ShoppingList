@@ -1,16 +1,28 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule }   from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
+
+import { ProductSearchBarComponent } from './components/product-search-bar/product-search-bar.component';
+import { ShoppingListComponent } from './components/shopping-list/shopping-list.component';
+import { MainPageComponent } from './pages/main-page/main-page.component';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ProductSearchBarComponent,
+    ShoppingListComponent,
+    MainPageComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    NgbTypeaheadModule
   ],
   providers: [],
   bootstrap: [AppComponent]
