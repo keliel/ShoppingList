@@ -1,0 +1,28 @@
+@import "../../shared/styles/entry";
+
+.navigation {
+  padding: 0;
+  background-color: map-get($theme-colors, bg-light);
+
+  &__logo {
+    max-height: $topbar-logo-height;
+  }
+
+  &__item {
+    display: block;
+    padding: $gutter-one-and-half;
+    line-height: 1;
+    white-space: nowrap;
+    font-weight: 700;
+    transition: background-color 0.2s linear;
+    @include navigationElement();
+
+    &:hover,
+    &:active,
+    &:focus,
+    &--active {
+      text-decoration: none;
+      outline: none;
+    }
+  }
+}

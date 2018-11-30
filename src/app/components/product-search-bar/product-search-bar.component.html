@@ -1,0 +1,7 @@
+<div class="input-group input-group-lg">
+  <input type="text" class="form-control" [ngbTypeahead]="search" [resultFormatter]="formatter"
+         [inputFormatter]="cleanupFormatter" (selectItem)="addToList($event)" />
+  <div class="input-group-append">
+    <i class="input-group-text" id="product-search">Search</i>
+  </div>
+</div>
