@@ -1,0 +1,12 @@
+@mixin navigationElement {
+  color: map-get($theme-colors, text);
+
+  &--active {
+    color: map-get($theme-colors, primary-contrast);
+    background-color: map-get($theme-colors, primary);
+  }
+
+  &:not(&--active):hover {
+    color: map-get($theme-colors, highlight);
+  }
+}
