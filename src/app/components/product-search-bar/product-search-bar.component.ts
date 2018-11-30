@@ -3,7 +3,6 @@ import { Observable, of } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map, tap, switchMap, catchError } from 'rxjs/operators';
 import { ProductService } from 'src/app/shared/services/product.service';
 import { NgbTypeaheadSelectItemEvent } from '@ng-bootstrap/ng-bootstrap/typeahead/typeahead';
-import { ProductSearchResult } from 'src/app/shared/models/product-search-result';
 import { ShoppingList } from 'src/app/shared/models/shopping-list';
 
 @Component({
@@ -27,9 +26,7 @@ export class ProductSearchBarComponent implements OnInit {
       tap(() => this.searching = true),
       switchMap(term =>
         this._service.searchProducts(term).pipe(
-          tap(() => {
-            return this.searchFailed = false;
-          }),
+          tap(() => this.searchFailed = false),
           catchError((e) => {
             console.log(e);
             this.searchFailed = true;
