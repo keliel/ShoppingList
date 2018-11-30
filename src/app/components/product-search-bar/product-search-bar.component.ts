@@ -17,7 +17,6 @@ export class ProductSearchBarComponent implements OnInit {
   @Input() productList: ShoppingList;
 
   constructor(private _service: ProductService) { }
-  model: ProductSearchResult;
   searching = false;
   searchFailed = false;
 
@@ -28,7 +27,9 @@ export class ProductSearchBarComponent implements OnInit {
       tap(() => this.searching = true),
       switchMap(term =>
         this._service.searchProducts(term).pipe(
-          tap(() => this.searchFailed = false),
+          tap(() => {
+            return this.searchFailed = false;
+          }),
           catchError((e) => {
             console.log(e);
             this.searchFailed = true;
@@ -39,6 +40,7 @@ export class ProductSearchBarComponent implements OnInit {
     )
 
   formatter = (x: { name: string }) => x.name;
+  cleanupFormatter = () => '';
 
   addToList(event: NgbTypeaheadSelectItemEvent): void {
     this.productList.addProduct(event.item);

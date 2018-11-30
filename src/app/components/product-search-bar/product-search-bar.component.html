@@ -1,6 +1,6 @@
 <div class="input-group input-group-lg">
-  <input type="text" class="form-control" [(ngModel)]="model" [ngbTypeahead]="search" [resultFormatter]="formatter"
-         [inputFormatter]="formatter" (selectItem)="addToList($event)" aria-label="Search for a product" aria-describedby="product-search" />
+  <input type="text" class="form-control" [ngbTypeahead]="search" [resultFormatter]="formatter"
+         [inputFormatter]="cleanupFormatter" (selectItem)="addToList($event)" />
   <div class="input-group-append">
     <i class="input-group-text" id="product-search">Search</i>
   </div>
