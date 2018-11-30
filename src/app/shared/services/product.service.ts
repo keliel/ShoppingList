@@ -33,7 +33,7 @@ export class ProductService {
   /**
    * Returns parameters object to search for products on real API.
    */
-  private static getProductSearchParams(query: string, currentPage: number = 0, pageSize: number = 30): HttpParams {
+  private static getProductSearchParams(query: string, currentPage: number = 0, pageSize: number = 20): HttpParams {
     return new HttpParams({ fromObject: { query: query, currentPage: currentPage.toString(), pageSize: pageSize.toString() } });
   }
 
