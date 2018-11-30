@@ -45,7 +45,7 @@ export class ProductService {
     throw new Error('Method not implemented.');
   }
 
-  searchProducts(term: string): Observable<Array<string>> {
+  searchProducts(term: string): Observable<Array<ProductSearchResult>> {
     if (term === '') {
       return of([]);
     }
@@ -56,7 +56,7 @@ export class ProductService {
       .get<RealAPIResult>(ProductService.getFullSearchUrl(), {
         params: searchParams
       }).pipe(map(response => {
-        return response.products.map((product) => product.name);
+        return response.products;
       })
       );
   }
