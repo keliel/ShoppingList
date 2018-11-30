@@ -15,13 +15,20 @@ export class ListSelectionComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.shoppingLists.length > 0) {
-      this.shoppingLists[0].select();
-    }
+    this.shoppingLists[this.shoppingLists.length - 1].select();
   }
 
   selectShoppingList(list: any): void {
-    this.shoppingLists.forEach((item) => item.deselect());
+    this.deselectAllLists();
     list.select();
+  }
+
+  createShoppingList(): void {
+    this.deselectAllLists();
+    this.shoppingLists.push(new ShoppingList('New List', true));
+  }
+
+  private deselectAllLists(): void {
+    this.shoppingLists.forEach((item) => item.deselect());
   }
 }
