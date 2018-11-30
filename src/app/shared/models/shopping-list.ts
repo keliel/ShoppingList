@@ -2,7 +2,7 @@ import { IShoppingList } from 'src/app/shared/models/i-shopping-list';
 import { ProductSearchResult } from 'src/app/shared/models/product-search-result';
 
 export class ShoppingList implements IShoppingList {
-  products: ProductSearchResult[];
+  products: Array<ProductSearchResult> = [];
   id: number;
   title: string;
   isSelected = false;

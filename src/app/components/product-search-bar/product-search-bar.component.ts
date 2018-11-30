@@ -1,9 +1,10 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map, tap, switchMap, catchError } from 'rxjs/operators';
 import { ProductService } from 'src/app/shared/services/product.service';
 import { NgbTypeaheadSelectItemEvent } from '@ng-bootstrap/ng-bootstrap/typeahead/typeahead';
 import { ProductSearchResult } from 'src/app/shared/models/product-search-result';
+import { ShoppingList } from 'src/app/shared/models/shopping-list';
 
 @Component({
   selector: 'app-product-search-bar',
@@ -13,9 +14,9 @@ import { ProductSearchResult } from 'src/app/shared/models/product-search-result
 
 export class ProductSearchBarComponent implements OnInit {
 
-  constructor(private _service: ProductService) { }
+  @Input() productList: ShoppingList;
 
-  productList: Array<ProductSearchResult> = [];
+  constructor(private _service: ProductService) { }
   model: ProductSearchResult;
   searching = false;
   searchFailed = false;
@@ -39,8 +40,8 @@ export class ProductSearchBarComponent implements OnInit {
 
   formatter = (x: { name: string }) => x.name;
 
-  addToTempList(event: NgbTypeaheadSelectItemEvent): void {
-    this.productList.push(event.item);
+  addToList(event: NgbTypeaheadSelectItemEvent): void {
+    this.productList.addProduct(event.item);
   }
 
   ngOnInit() {

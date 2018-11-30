@@ -1,20 +1,33 @@
+<app-product-search-bar [productList]="list"></app-product-search-bar>
+
+
 <div class="table-responsive">
   <table class="table">
     <thead>
       <tr>
-        <th>ID</th>
+        <th>Code</th>
         <th>Name</th>
-        <th>Description</th>
+        <th>Brand</th>
+        <th>Price</th>
         <th>Actions</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let item of list.products">
-        <td *ngFor="let key of item">
-          <span *ngIf="key !== 'moveInDate' && key !== 'email'">{{tenant[key]}}</span>
+        <td>
+          <span>{{item.code}}</span>
         </td>
         <td>
-          <button type="button" class="btn btn-outline-primary" (click)="list.removeProduct(item)">Delete</button>
+          <strong>{{item.name}}</strong>
+        </td>
+        <td>
+          <span>{{item.brand}}</span>
+        </td>
+        <td>
+          <strong>{{item.price.value | currency:item.price.currencyIso}}</strong>
+        </td>
+        <td>
+          <button type="button" class="btn btn-sm btn-outline-primary" (click)="list.removeProduct(item)">Delete</button>
         </td>
       </tr>
     </tbody>
