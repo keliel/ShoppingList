@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Observable } from 'rxjs';
-import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { debounceTime, distinctUntilChanged, map, tap, switchMap, catchError } from 'rxjs/operators';
+import { ProductService } from 'src/app/shared/services/product.service';
 
 @Component({
   selector: 'app-product-search-bar',
@@ -10,20 +11,30 @@ import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 
 export class ProductSearchBarComponent implements OnInit, OnDestroy {
 
-  public model: any;
+  model: any;
+  searching = false;
+  searchFailed = false;
 
-  states = [];
+  private states = [];
 
-  constructor() { }
+  constructor(private _service: ProductService) { }
 
   search = (text$: Observable<string>) =>
     text$.pipe(
-      debounceTime(200),
+      debounceTime(300),
       distinctUntilChanged(),
-      map(term => term.length < 1 ? []
-        : this.states.filter(v => v.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10))
+      tap(() => this.searching = true),
+      switchMap(term =>
+        this._service.searchProducts(term).pipe(
+          tap(() => this.searchFailed = false),
+          catchError((e) => {
+            console.log(e);
+            this.searchFailed = true;
+            return of([]);
+          }))
+      ),
+      tap(() => this.searching = false)
     )
-
   ngOnInit() {
   }
 
