@@ -13,6 +13,7 @@ import { ShoppingListComponent } from './components/shopping-list/shopping-list.
 import { MainPageComponent } from './pages/main-page/main-page.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { ListSelectionComponent } from './components/list-selection/list-selection.component';
+import { ListEditComponent } from './components/list-edit/list-edit.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ListSelectionComponent } from './components/list-selection/list-selecti
     ShoppingListComponent,
     MainPageComponent,
     NavigationComponent,
-    ListSelectionComponent
+    ListSelectionComponent,
+    ListEditComponent
   ],
   imports: [
     BrowserModule,
