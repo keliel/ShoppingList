@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ShoppingList } from 'src/app/shared/models/shopping-list';
 
 @Component({
   selector: 'app-list-selection',
@@ -7,31 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListSelectionComponent implements OnInit {
 
-  shoppingLists = [{
-    id: 54845,
-    title: 'what',
-    isSelected: false
-  }, {
-    id: 54875,
-    title: 'what1',
-    isSelected: false
-  }, {
-    id: 58845,
-    title: 'what2',
-    isSelected: false
-  }];
+  shoppingLists: Array<ShoppingList> = [];
 
-  constructor() { }
+  constructor() {
+    this.shoppingLists.push(new ShoppingList('My First List'));
+  }
 
   ngOnInit() {
     if (this.shoppingLists.length > 0) {
-      this.shoppingLists[0].isSelected = true;
+      this.shoppingLists[0].select();
     }
   }
 
   selectShoppingList(list: any): void {
-    this.shoppingLists.forEach((item) => item.isSelected = false);
-    list.isSelected = true;
+    this.shoppingLists.forEach((item) => item.deselect());
+    list.select();
   }
-
 }
