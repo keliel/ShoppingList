@@ -12,6 +12,7 @@ import { ProductSearchBarComponent } from './components/product-search-bar/produ
 import { ShoppingListComponent } from './components/shopping-list/shopping-list.component';
 import { MainPageComponent } from './pages/main-page/main-page.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { ListSelectionComponent } from './components/list-selection/list-selection.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { NavigationComponent } from './components/navigation/navigation.componen
     ProductSearchBarComponent,
     ShoppingListComponent,
     MainPageComponent,
-    NavigationComponent
+    NavigationComponent,
+    ListSelectionComponent
   ],
   imports: [
     BrowserModule,
