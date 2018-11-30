@@ -10,7 +10,7 @@ export class ListSelectionComponent implements OnInit {
   shoppingLists = [{
     id: 54845,
     title: 'what',
-    isSelected: true
+    isSelected: false
   }, {
     id: 54875,
     title: 'what1',
@@ -24,6 +24,14 @@ export class ListSelectionComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    if (this.shoppingLists.length > 0) {
+      this.shoppingLists[0].isSelected = true;
+    }
+  }
+
+  selectShoppingList(list: any): void {
+    this.shoppingLists.forEach((item) => item.isSelected = false);
+    list.isSelected = true;
   }
 
 }

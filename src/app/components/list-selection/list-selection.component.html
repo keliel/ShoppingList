@@ -2,15 +2,17 @@
   <div class="col-3">
     <ul class="nav flex-column nav-pills list-selection" role="tablist" aria-orientation="vertical">
       <li class="nav-item list-selection__item" *ngFor="let list of shoppingLists" [ngClass]="{'list-selection__item--active': list.isSelected}">
-        <a class="nav-link" [id]="'tab' + list.id" role="tab" [ngClass]="{'active': list.isSelected}"
-           attr.aria-controls="{{list.id}}" attr.aria-selected="{{list.isSelected}}">{{list.title}}</a>
+        <a class="nav-link" [id]="'tab' + list.id" role="tab" [ngClass]="{'active': list.isSelected}" (click)="selectShoppingList(list)">
+          {{list.title}}
+        </a>
       </li>
     </ul>
   </div>
   <div class="col-9">
     <div class="tab-content">
-      <div class="tab-pane" *ngFor="let list of shoppingLists" [id]="list.id" attr.aria-labelledby="tab{{list.id}}"
-           [ngClass]="{'active': list.isSelected}">Insert list into other component here</div>
+      <div class="tab-pane" *ngFor="let list of shoppingLists" [id]="list.id" [ngClass]="{'active': list.isSelected}">
+        <app-shopping-list [list]="list"></app-shopping-list>
+      </div>
     </div>
   </div>
 </div>
