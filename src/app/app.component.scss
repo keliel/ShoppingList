@@ -1,21 +1,2 @@
 @import "./shared/styles/entry";
 
-.navigation {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  max-width: $stage-width;
-  margin: 0 auto;
-
-  &__logo {
-    position: static;
-    width: $topbar-logo-width;
-    margin-left: auto;
-    margin-right: $gutter;
-    transform: none;
-  }
-
-  &__add-btn {
-    margin-right: $topbar-logo-width + $gutter;
-  }
-}
