@@ -7,15 +7,11 @@ import { AppComponent } from './app.component';
 
 import { NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { ProductSearchBarComponent } from './components/product-search-bar/product-search-bar.component';
-import { ShoppingListComponent } from './components/shopping-list/shopping-list.component';
 import { MainPage } from './pages/main-page/main-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductSearchBarComponent,
-    ShoppingListComponent,
     MainPage
   ],
   imports: [
