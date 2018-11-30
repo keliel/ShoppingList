@@ -6,11 +6,17 @@
           {{list.title}}
         </a>
       </li>
+      <li class="nav-item list-selection__item">
+        <a class="nav-link" (click)="createShoppingList()">
+          Add new list
+        </a>
+      </li>
     </ul>
   </div>
   <div class="col-9">
     <div class="tab-content">
       <div class="tab-pane" *ngFor="let list of shoppingLists" [id]="list.id" [ngClass]="{'active': list.isSelected}">
+        <app-list-edit [listToEdit]="list"></app-list-edit>
         <app-shopping-list [list]="list"></app-shopping-list>
       </div>
     </div>

@@ -7,9 +7,10 @@ export class ShoppingList implements IShoppingList {
   title: string;
   isSelected = false;
 
-  constructor(title: string) {
+  constructor(title: string, defaultSelectionState?: boolean) {
     this.id = Math.random() * 11;
     this.title = title;
+    this.isSelected = defaultSelectionState || false;
   }
 
   select(): void {
