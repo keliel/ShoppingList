@@ -1,19 +1,6 @@
-<div class="navbar">
-  <nav class="navigation">
-    <a class="navigation__item"
-       routerLinkActive="navigation__item--active"
-       routerLink="/list">
-      Shopping Lists
-    </a>
-    <a class="navigation__item"
-       routerLinkActive="navigation__item--active"
-       routerLink="/admin">
-      Settings
-    </a>
-    <img class="navigation__logo"
-         src="https://i.shnig.de/NP9CEF" />
-  </nav>
-</div>
+<header class="sticky-top">
+  <app-navigation></app-navigation>
+</header>
 <main class="content">
   <router-outlet></router-outlet>
 </main>
