@@ -10,16 +10,18 @@ import { NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { ProductSearchBarComponent } from './components/product-search-bar/product-search-bar.component';
 import { ShoppingListComponent } from './components/shopping-list/shopping-list.component';
-import { MainPage } from './pages/main-page/main-page.component';
+import { MainPageComponent } from './pages/main-page/main-page.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { ListSelectionComponent } from './components/list-selection/list-selection.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductSearchBarComponent,
     ShoppingListComponent,
-    MainPage,
-    NavigationComponent
+    MainPageComponent,
+    NavigationComponent,
+    ListSelectionComponent
   ],
   imports: [
     BrowserModule,

@@ -13,9 +13,9 @@
     padding: $gutter-one-and-half;
     line-height: 1;
     white-space: nowrap;
-    color: map-get($theme-colors, text);
     font-weight: 700;
     transition: background-color 0.2s linear;
+    @include navigationElement();
 
     &:hover,
     &:active,
@@ -23,15 +23,6 @@
     &--active {
       text-decoration: none;
       outline: none;
-    }
-
-    &--active {
-      color: map-get($theme-colors, primary-contrast);
-      background-color: map-get($theme-colors, primary);
-    }
-
-    &:not(&--active):hover {
-      color: map-get($theme-colors, highlight);
     }
   }
 }

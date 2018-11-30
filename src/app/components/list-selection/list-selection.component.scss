@@ -1,0 +1,9 @@
+@import "../../shared/styles/entry";
+
+.list-selection {
+  &__item {
+    @include navigationElement;
+
+    cursor: pointer;
+  }
+}

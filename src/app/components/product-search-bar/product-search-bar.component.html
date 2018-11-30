@@ -1,8 +1,7 @@
 <div class="input-group input-group-lg">
   <input type="text" class="form-control" [(ngModel)]="model" [ngbTypeahead]="search" [resultFormatter]="formatter"
-         [inputFormatter]="formatter" (selectItem)="addToTempList($event)" aria-label="Search for a product" aria-describedby="product-search" />
+         [inputFormatter]="formatter" (selectItem)="addToList($event)" aria-label="Search for a product" aria-describedby="product-search" />
   <div class="input-group-append">
     <i class="input-group-text" id="product-search">Search</i>
   </div>
 </div>
-<pre>Model: {{ productList | json }}</pre>

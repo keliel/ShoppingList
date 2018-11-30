@@ -1,3 +1,38 @@
-<p>
-  shopping-list works!
-</p>
+<section class="products">
+  <h4 class="products__title">Add a product</h4>
+  <app-product-search-bar [productList]="list"></app-product-search-bar>
+
+  <h3 class="products__title">Products: {{list.products.length}}</h3>
+  <div class="table-responsive products__list">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Code</th>
+          <th>Name</th>
+          <th>Brand</th>
+          <th>Price</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of list.products">
+          <td>
+            <span>{{item.code}}</span>
+          </td>
+          <td>
+            <strong>{{item.name}}</strong>
+          </td>
+          <td>
+            <span>{{item.brand}}</span>
+          </td>
+          <td>
+            <strong>{{item.price.value | currency:item.price.currencyIso}}</strong>
+          </td>
+          <td>
+            <button type="button" class="btn btn-sm btn-outline-primary" (click)="list.removeProduct(item)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

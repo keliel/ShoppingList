@@ -1,0 +1,7 @@
+@import "../../shared/styles/entry";
+
+.products {
+  &__title {
+    margin: $gutter-one-and-half 0 $gutter;
+  }
+}
